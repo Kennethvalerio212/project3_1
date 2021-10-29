@@ -9,7 +9,7 @@ key = "yPfDRcQKBMOkOjMAG3WtXIzcCmmI0t5j"
 def home(request):
     InputOrig=request.POST.get('inputlocation')
     InputDest=request.POST.get('inputDestination')
-    
+   
 
     url = main_api + urllib.parse.urlencode({"key": key, "from":InputOrig, "to":InputDest})
     json_data = requests.get(url).json()
