@@ -1,0 +1,39 @@
+{% extends "maps/base.html" %}
+
+{%block content %}
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="inputlocation" class="form-label"><b>Original Location</b></label>
+      <input type="text" class="form-control" name="inputlocation" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"><b>Destination</b></label>
+      <input type="text" class="form-control" name="inputDestination">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <input class="btn btn-primary" type="reset" value="Reset">
+    
+    
+  </form>
+  {% if InputOrig %}
+  <h4>Directions from {{InputOrig}} to {{InputDest}}</h4>
+  <p> The location {{InputDest}} is {{KM}} Kilometers away</p>
+  <p> The Trip Duration is {{Trip_Duration}}</p>
+  <p> Your fuel consumption will be {{Fuel}} Liters</p>
+  {%else%}
+  <h4></h4>
+  <p></p>
+  {% endif %}
+
+
+
+
+
+
+        
+    
+{% endblock content%}
+  
